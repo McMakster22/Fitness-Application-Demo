@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "307097683209",
+    "firebase_url": "https://fitnessapp-77bda.firebaseio.com",
+    "project_id": "fitnessapp-77bda",
+    "storage_bucket": "fitnessapp-77bda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307097683209:android:9d460918947aa130",
+        "android_client_info": {
+          "package_name": "dk.now.just.bogym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307097683209-udcejhqi61ba0rpu59mcjl1u7kcmfa58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dk.now.just.bogym",
+            "certificate_hash": "a5fd8175c61e16995acb252195f3f72a60a97975"
+          }
+        },
+        {
+          "client_id": "307097683209-jt2r3um40gqm7eu6sa3hkd8kra4c8apn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALg8R0-HG5RPlNmngBgJg2ZBWXWrubLE0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307097683209-jt2r3um40gqm7eu6sa3hkd8kra4c8apn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
