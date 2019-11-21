@@ -5,29 +5,35 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_chat"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Chat" />
-        <item
             android:id="@+id/nav_routines"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/folder_open"
             android:title="Routines" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_challenges"
+            android:icon="@drawable/trophy"
+            android:title="Challenges" />
+        <item
+            android:id="@+id/nav_timer"
+            android:icon="@drawable/timer"
+            android:title="Timer" />
+        <item
+            android:id="@+id/nav_stat"
+            android:icon="@drawable/finance"
+            android:title="Statistics"
+            />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/comment_text_multiple"
+            android:title="Chat" />
+            <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+
         </menu>
     </item>
 

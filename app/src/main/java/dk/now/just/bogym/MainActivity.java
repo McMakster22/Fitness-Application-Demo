@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,23 +15,52 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import dk.now.just.bogym.Adapter.RecyclerViewAdapterBlog;
+import dk.now.just.bogym.Model.Blog;
+
+
 
 public class MainActivity extends AppCompatActivity
+
+
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    List<Blog> blogList = new ArrayList<>();
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView recyclerView;
+    RecyclerViewAdapterBlog adapterBlog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btnChallenges = (Button) findViewById(R.id.btnChallenges);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        initData();
+        recyclerView = (RecyclerView) findViewById(R.id.blogLists);
+        adapterBlog = new RecyclerViewAdapterBlog(blogList,getBaseContext());
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapterBlog);
+
+
+
+
+
+        btnChallenges.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent=new Intent(MainActivity.this, ListChallenges.class);
+                startActivity(intent);
             }
         });
 
@@ -83,22 +114,40 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_chat) {
-            Intent intent = new Intent(MainActivity.this, Chat.class );
+        if (id == R.id.nav_routines) {
+            Intent intent = new Intent(MainActivity.this, Routines.class );
             startActivity(intent);
 
-        } else if (id == R.id.nav_routines) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_challenges) {
+            Intent intent = new Intent(MainActivity.this, ListChallenges.class );
+            startActivity(intent);
+
+        } else if (id == R.id.nav_timer) {
+            Intent intent = new Intent(MainActivity.this, Timer.class );
+            startActivity(intent);
+
+        } else if (id== R.id.nav_stat){
+            Toast toast = Toast.makeText(getApplicationContext(),"Still in progress", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else if (id == R.id.nav_chat) {
+            Intent intent = new Intent(MainActivity.this, Users.class );
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void initData(){
+        blogList.add(new Blog(R.drawable.avatarmale, "Challenge", "It’s possible to spend a lot of times building out a workout. You can use all kinds of equipment, determine how many reps you want to do for each."));
+        blogList.add(new Blog(R.drawable.images, "Agree", "“Training gives us an outlet for suppressed energies created by stress and thus tones the spirit just as exercise conditions the body.” – Arnold Schwarzenegger"));
+        blogList.add(new Blog(R.drawable.expert1, "Quote of the day", "Fitness is like a relationship. You can’t cheat and expect it to work"));
+        blogList.add(new Blog(R.drawable.iconlog, "Respect", "Respect your body. It’s the only one you get"));
     }
 }
