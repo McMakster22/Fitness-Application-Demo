@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
                     username.setError("can't be blank");
                 }
                 else if(pass.equals("")){
-                    password.setError("can't be blank");
+                    password.setError("can't be blank ");
                 }
                 else{
                     String url = "https://fitnessapp-77bda.firebaseio.com/users.json";
